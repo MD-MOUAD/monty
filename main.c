@@ -36,13 +36,13 @@ int main(int argc, char **argv)
 		{
 			fprintf(stderr, "L<%d>: unknown instruction <%s>\n",
 					vars.line_number, opcode);
-			/*free_all();*/
+			free_all();
 			fclose(vars.stream);
 			exit(EXIT_FAILURE);
 		}
 		vars.line_number++;
 	}
 	fclose(vars.stream);
-	/*free_all();*/
+	free_all();
 	exit(EXIT_SUCCESS);
 }
