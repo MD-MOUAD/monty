@@ -1,7 +1,9 @@
 #include "monty.h"
-Data vars;
 /**
+ * execute_line - execute founded line in the stream
+ * @opcode: the opcode
  *
+ * Return: 0 if success otherwise return EXIT_FAILURE
  */
 int execute_line(char *opcode)
 {

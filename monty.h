@@ -22,9 +22,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+		int n;
+		struct stack_s *prev;
+		struct stack_s *next;
 } stack_t;
 /**
  * struct instruction_s - opcode and its function
@@ -40,8 +40,13 @@ typedef struct instruction_s
 		void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 /**
- *
- *
+ * struct Data - struct of datas to be used as global variable
+ * @buff: getline buffer
+ * @size: getline buffer size
+ * @stream: file stream
+ * @line_number: line number
+ * @stack: head of the stack
+ * @instruct: array of instructions
  */
 typedef struct Data
 {
@@ -66,4 +71,4 @@ void initialize_vars(void);
 void free_all(void);
 int _isdigit(char *str);
 
-#endif
+#endif /* MONTY_H */

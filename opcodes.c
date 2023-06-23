@@ -1,8 +1,10 @@
 #include "monty.h"
 /**
+ * push - pushes an element to the stack
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
  *
- *
- *
+ * Return: (void)
  */
 void push(stack_t **stack, unsigned int line_number)
 {
@@ -33,10 +35,13 @@ void push(stack_t **stack, unsigned int line_number)
 	*stack = new;
 }
 /**
+ * pall - prints all the values on the stack, starting from the top
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
  *
- *
- *
+ * Return: (void)
  */
+
 void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ptr = *stack;

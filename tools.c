@@ -1,7 +1,8 @@
 #include "monty.h"
 /**
+ * initialize_vars - initialize variables
  *
- *
+ * Return: void
  */
 void initialize_vars(void)
 {
@@ -14,8 +15,9 @@ void initialize_vars(void)
 	vars.instruct[2].opcode = NULL, vars.instruct[2].f = NULL;
 }
 /**
+ * free_all - free allocated memory
  *
- *
+ * Return: void
  */
 void free_all(void)
 {
@@ -32,8 +34,10 @@ void free_all(void)
 	}
 }
 /**
+ * _isdigit - check if string is digit
+ * @str: string to check
  *
- *
+ * Return: 0 if success otherwise return EXIT_FAILURE
  */
 int _isdigit(char *str)
 {
