@@ -1,6 +1,6 @@
 #include "monty.h"
 #include <stdio.h>
-Data vars
+Data vars;
 /**
  * main - Monty main program
  * @argc: arguments counter
