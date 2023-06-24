@@ -14,17 +14,17 @@ void push(stack_t **stack, unsigned int line_number)
 	number = strtok(NULL, " \t\n");
 	if (number == NULL || _isdigit(number) == EXIT_FAILURE)
 	{
-		fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
-		fclose(vars.stream);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_all();
+		fclose(vars.stream);
 		exit(EXIT_FAILURE);
 	}
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		fclose(vars.stream);
 		free_all();
+		fclose(vars.stream);
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(number);
