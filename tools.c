@@ -13,14 +13,10 @@ void initialize_vars(void)
 	vars.instruct[0].opcode = "push", vars.instruct[0].f = push;
 	vars.instruct[1].opcode = "pall", vars.instruct[1].f = pall;
 	vars.instruct[2].opcode = "pint", vars.instruct[2].f = pint;
-	vars.instruct[3].opcode = "swap", vars.instruct[3].f = swap;
-	vars.instruct[4].opcode = "pop", vars.instruct[4].f = pop;
+	vars.instruct[3].opcode = "pop", vars.instruct[3].f = pop;
+	vars.instruct[4].opcode = "swap", vars.instruct[4].f = swap;
 	vars.instruct[5].opcode = "add", vars.instruct[5].f = add;
-	vars.instruct[6].opcode = "nop", vars.instruct[6].f = nop;
-	vars.instruct[7].opcode = "sub", vars.instruct[7].f = sub;
-	/* vars.instruct[8].opcode = "div", vars.instruct[8].f = div; */
-	vars.instruct[9].opcode = "mul", vars.instruct[9].f = mul;
-	vars.instruct[10].opcode = NULL, vars.instruct[10].f = NULL;
+	vars.instruct[6].opcode = NULL, vars.instruct[6].f = NULL;
 }
 /**
  * free_all - free allocated memory
