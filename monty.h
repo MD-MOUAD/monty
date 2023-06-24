@@ -62,13 +62,18 @@ extern Data vars;
 /* execute_line.c */
 int execute_line(char *opcode);
 
-/* opcodes.c */
+/* 0-opcodes.c */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 
+/* 1-opcodes.c */
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 /* tools.c */
 void initialize_vars(void);
 void free_all(void);
