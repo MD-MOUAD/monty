@@ -14,7 +14,7 @@ void push(stack_t **stack, unsigned int line_number)
 	number = strtok(NULL, " \t\n");
 	if (number == NULL || _isdigit(number) == EXIT_FAILURE)
 	{
-		fprintf(stderr, "L<%u>: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_all();
 		fclose(vars.stream);
 		exit(EXIT_FAILURE);
