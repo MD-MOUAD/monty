@@ -53,3 +53,21 @@ void pall(stack_t **stack, unsigned int line_number)
 		ptr = ptr->next;
 	}
 }
+/**
+ * pint - prints the value at the top of the stack, followed by a new line
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
+ *
+ * Return: (void)
+ */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	if (!*stack)
+	{
+		fprintf(stderr, "L%u: can't pint, stack empty", line_number);
+		free_all();
+		fclose(vars.stream);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}

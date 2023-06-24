@@ -12,7 +12,8 @@ void initialize_vars(void)
 	vars.stack = NULL;
 	vars.instruct[0].opcode = "push", vars.instruct[0].f = push;
 	vars.instruct[1].opcode = "pall", vars.instruct[1].f = pall;
-	vars.instruct[2].opcode = NULL, vars.instruct[2].f = NULL;
+	vars.instruct[2].opcode = "pint", vars.instruct[2].f = pint;
+	vars.instruct[3].opcode = NULL, vars.instruct[3].f = NULL;
 }
 /**
  * free_all - free allocated memory
