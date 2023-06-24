@@ -68,10 +68,10 @@ void divid(stack_t **stack, unsigned int line_number)
 {
 	if (!(*stack) || !(*stack)->next || (*stack)->n == 0)
 	{
-		if (*stack)
-			fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
-		else
+		if (*stack && (*stack)->next)
 			fprintf(stderr, "L%u: division by zero\n", line_number);
+		else
+			fprintf(stderr, "L%u: can't div, stack too short\n", line_number);
 		free_all();
 		fclose(vars.stream);
 		exit(EXIT_FAILURE);
