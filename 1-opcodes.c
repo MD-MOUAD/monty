@@ -21,3 +21,15 @@ void add(stack_t **stack, unsigned int line_number)
 		pop(stack, line_number);
 	}
 }
+/**
+ * nop - I am useless :|
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
+ *
+ * Return: (void)
+ */
+void add(stack_t **stack, unsigned int line_number)
+{
+	/* Nothing */
+}
+
