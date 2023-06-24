@@ -34,7 +34,7 @@ int main(int argc, char **argv)
 		}
 		if (execute_line(opcode) == EXIT_FAILURE)
 		{
-			fprintf(stderr, "L%u: unknown instruction <%s>\n",
+			fprintf(stderr, "L%u: unknown instruction %s\n",
 					vars.line_number, opcode);
 			free_all();
 			fclose(vars.stream);
