@@ -18,7 +18,7 @@ void initialize_vars(void)
 	vars.instruct[5].opcode = "add", vars.instruct[5].f = add;
 	vars.instruct[6].opcode = "nop", vars.instruct[6].f = nop;
 	vars.instruct[7].opcode = "sub", vars.instruct[7].f = sub;
-	vars.instruct[8].opcode = "div", vars.instruct[8].f = div;
+	vars.instruct[8].opcode = "div", vars.instruct[8].f = divid;
 	vars.instruct[9].opcode = NULL, vars.instruct[9].f = NULL;
 }
 /**

@@ -57,14 +57,14 @@ void sub(stack_t **stack, unsigned int line_number)
 	}
 }
 /**
- * div - divides the second top element of the stack by the top element
+ * divid - divides the second top element of the stack by the top element
  * of the stack.
  * @stack: the head of the stack
  * @line_number: the line number where the opcode exist
  *
  * Return: (void)
  */
-void div(stack_t **stack, unsigned int line_number)
+void divid(stack_t **stack, unsigned int line_number)
 {
 	if (!(*stack) || !(*stack)->next || (*stack)->n == 0)
 	{
