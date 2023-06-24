@@ -14,7 +14,8 @@ void initialize_vars(void)
 	vars.instruct[1].opcode = "pall", vars.instruct[1].f = pall;
 	vars.instruct[2].opcode = "pint", vars.instruct[2].f = pint;
 	vars.instruct[3].opcode = "pop", vars.instruct[3].f = pop;
-	vars.instruct[4].opcode = NULL, vars.instruct[4].f = NULL;
+	vars.instruct[4].opcode = "swap", vars.instruct[4].f = swap;
+	vars.instruct[5].opcode = NULL, vars.instruct[5].f = NULL;
 }
 /**
  * free_all - free allocated memory
