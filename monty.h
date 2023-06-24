@@ -5,11 +5,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/uio.h>
-#include <errno.h>
-#include <fcntl.h>
 #include <ctype.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -55,7 +55,7 @@ typedef struct Data
 		FILE *stream;
 		int line_number;
 		stack_t *stack;
-		instruction_t instruct[10];
+		instruction_t instruct[20];
 } Data;
 extern Data vars;
 
