@@ -113,9 +113,10 @@ void rotr(stack_t **stack, unsigned int line_number)
 	{
 		while (tmp->next)
 			tmp = tmp->next;
+		tmp->next = *stack;
 		tmp->prev->next = NULL;
 		tmp->prev = NULL;
-		tmp->next = (*stack);
-		*stack = tmp;
+		(*stack)->prev = tmp;
+		(*stack) = tmp;
 	}
 }
