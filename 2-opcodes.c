@@ -60,7 +60,7 @@ void pstr(stack_t **stack, unsigned int line_number)
 	stack_t *tmp = *stack;
 	(void) line_number;
 
-	while (*tmp)
+	while (tmp)
 	{
 		if (tmp->n <= 0 || tmp->n > 127)
 			break;
