@@ -8,31 +8,36 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
+	stack_t *new, *tmp;
 	char *number;
 
 	number = strtok(NULL, " \t\n");
 	if (number == NULL || _isdigit(number) == EXIT_FAILURE)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		free_all();
-		fclose(vars.stream);
+		free_all(), fclose(vars.stream);
 		exit(EXIT_FAILURE);
 	}
 	new = malloc(sizeof(stack_t));
 	if (!new)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		free_all();
-		fclose(vars.stream);
+		free_all(), fclose(vars.stream);
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(number);
+	new->next = NULL;
 	new->prev = NULL;
-	new->next = *stack;
-	if (*stack)
-		(*stack)->prev = new;
-	*stack = new;
+	if (strcmp(vars.format, "LIFO") == 0) /* Stack */
+	{
+		add_node(stack, atoi(number));
+		return;
+	}
+	if (strcmp(vars.format, "FIFO") == 0) /* Queue */
+	{
+		add_node_end(stack, atoi(number));
+		return;
+	}
 }
 /**
  * pall - prints all the values on the stack, starting from the top

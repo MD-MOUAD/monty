@@ -10,6 +10,7 @@ void initialize_vars(void)
 	vars.size = 0;
 	vars.line_number = 1;
 	vars.stack = NULL;
+	vars.format = "LIFO"; /* stack */
 	vars.instruct[0].opcode = "push", vars.instruct[0].f = push;
 	vars.instruct[1].opcode = "pall", vars.instruct[1].f = pall;
 	vars.instruct[2].opcode = "pint", vars.instruct[2].f = pint;
@@ -25,7 +26,9 @@ void initialize_vars(void)
 	vars.instruct[12].opcode = "pstr", vars.instruct[12].f = pstr;
 	vars.instruct[13].opcode = "rotl", vars.instruct[13].f = rotl;
 	vars.instruct[14].opcode = "rotr", vars.instruct[14].f = rotr;
-	vars.instruct[15].opcode = NULL, vars.instruct[15].f = NULL;
+	vars.instruct[15].opcode = "stack", vars.instruct[15].f = stack;
+	vars.instruct[16].opcode = "queue", vars.instruct[16].f = queue;
+	vars.instruct[17].opcode = NULL, vars.instruct[17].f = NULL;
 }
 /**
  * free_all - free allocated memory
@@ -64,4 +67,66 @@ int _isdigit(char *str)
 			return (EXIT_FAILURE);
 	}
 	return (EXIT_SUCCESS);
+}
+/**
+ * add_node -  add element to stack.
+ * @head: the top of the stack
+ * @n: the element to add
+ *
+ * Return: (void)
+ */
+void add_node(stack_t **head, const int n)
+{
+	stack_t *new;
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_all(), fclose(vars.stream);
+		exit(EXIT_FAILURE);
+	}
+	new->n = n;
+	new->next = NULL;
+	new->prev = NULL;
+
+	new->next = *head;
+	if (*head)
+	{
+		(*head)->prev = new;
+	}
+	*head = new;
+}
+/**
+ * add_node_end -  add element to queue.
+ * @head: the front of the queue
+ * @n: the element to add
+ *
+ * Return: (void)
+ */
+void add_node_end(stack_t **head, const int n)
+{
+	stack_t *new, *tmp;
+
+	new = malloc(sizeof(stack_t));
+	if (!new)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		free_all(), fclose(vars.stream);
+		exit(EXIT_FAILURE);
+	}
+	new->n = n;
+	new->next = NULL;
+	new->prev = NULL;
+	if (!*head)
+		*head = new;
+	else
+	{
+		tmp = *head;
+		while (tmp->next)
+			tmp = tmp->next;
+
+		tmp->next = new;
+		new->prev = tmp;
+	}
 }

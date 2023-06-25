@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 			vars.line_number++;
 			continue;
 		}
-		if (execute_line(opcode) == EXIT_FAILURE)
+		if (execute_opcode(opcode) == EXIT_FAILURE)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n",
 					vars.line_number, opcode);

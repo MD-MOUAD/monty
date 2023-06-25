@@ -55,12 +55,15 @@ typedef struct Data
 		FILE *stream;
 		int line_number;
 		stack_t *stack;
-		instruction_t instruct[20];
+		instruction_t instruct[18];
+		char *format; /* LIFO & FIFO */
 } Data;
 extern Data vars;
 
 /* execute_line.c */
-int execute_line(char *opcode);
+int execute_opcode(char *opcode);
+void stack(stack_t **stack, unsigned int line_number);
+void queue(stack_t **stack, unsigned int line_number);
 
 /* 0-opcodes.c */
 void push(stack_t **stack, unsigned int line_number);
@@ -87,5 +90,7 @@ void rotr(stack_t **stack, unsigned int line_number);
 void initialize_vars(void);
 void free_all(void);
 int _isdigit(char *str);
+void add_node(stack_t **head, const int n);
+void add_node_end(stack_t **head, const int n);
 
 #endif /* MONTY_H */
