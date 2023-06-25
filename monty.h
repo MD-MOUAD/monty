@@ -78,7 +78,7 @@ void mul(stack_t **stack, unsigned int line_number);
 
 /* 2-opcodes.c*/
 void mod(stack_t **stack, unsigned int line_number);
-
+void pchar(stack_t **stack, unsigned int line_number);
 /* tools.c */
 void initialize_vars(void);
 void free_all(void);
