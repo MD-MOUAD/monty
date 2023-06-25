@@ -69,3 +69,33 @@ void pstr(stack_t **stack, unsigned int line_number)
 	}
 	printf("\n");
 }
+/**
+ * rotl - rotates the stack to the top
+ * (The top element of the stack becomes
+ * the last one, and the second top element of the stack
+ * becomes the first one)
+ *
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
+ *
+ * Return: (void)
+ */
+
+void rotl(stack_t **stack, unsigned int line_number)
+{
+	stack_t *first, *last;
+	(void) line_number;
+
+	first = last = *stack;
+	if (*stack && (*stack)->next)
+	{
+		*stack = (*stack)->next; /* the head of the stack will be the second
+									node that contains the 2nd top element */
+		while(last->next)
+			last = last->next; /* last will go to the last node */
+
+		last->next = first; /*link the last node with the first node */
+		first->next =  NULL; /* now the first node becomes the last one */
+		(*stack)->prev = NULL;
+	}
+}
