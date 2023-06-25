@@ -82,16 +82,17 @@ void pstr(stack_t **stack, unsigned int line_number)
  */
 void rotl(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tm = *stack;
+	stack_t *tmp = *stack;
 	(void) line_number;
 
-	if (!stack || !*stack || !(*stack)->next)
-		return;
-	(*stack)->next->prev = NULL;
-	while (tm->next)
-		tm = tm->next;
-	tm->next = *stack;
-	(*stack) = (*stack)->next;
-	tm->next->next = NULL;
-	tm->next->prev = tm;
+	if (*stack && (*stack)->next)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = (*stack);
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+		tmp->next->next = NULL;
+		tmp->next->prev = tmp;
+	}
 }
