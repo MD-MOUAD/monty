@@ -80,7 +80,6 @@ void pstr(stack_t **stack, unsigned int line_number)
  *
  * Return: (void)
  */
-
 void rotl(stack_t **stack, unsigned int line_number)
 {
 	stack_t *first, *last;
@@ -89,9 +88,9 @@ void rotl(stack_t **stack, unsigned int line_number)
 	if (*stack && (*stack)->next)
 	{
 		first = last = *stack;
-		*stack = (*stack)->next; /* the head of the stack will be the second
-									node that contains the 2nd top element */
-		while(last->next)
+		*stack = (*stack)->next; /* the head of the stack will be the second */
+								/* node that contains the 2nd top element */
+		while (last->next)
 			last = last->next; /* last will go to the last node */
 
 		last->next = first; /*link the last node with the first node */
