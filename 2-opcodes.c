@@ -96,3 +96,26 @@ void rotl(stack_t **stack, unsigned int line_number)
 		tmp->next->prev = tmp;
 	}
 }
+/**
+ * rotr - rotates the stack to the bottom
+ * The last element of the stack becomes the top element of the stack.
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
+ *
+ * Return: (void)
+ */
+void rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+	(void) line_number;
+
+	if (*stack && (*stack)->next)
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->prev->next = NULL;
+		tmp->prev = NULL;
+		tmp->next = (*stack);
+		*stack = tmp;
+	}
+}
