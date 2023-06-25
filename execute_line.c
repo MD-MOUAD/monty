@@ -9,6 +9,8 @@ int execute_line(char *opcode)
 {
 	int i;
 
+	if (opcode[0] == '#')
+		return (EXIT_SUCCESS);
 	for (i = 0; vars.instruct[i].opcode; i++)
 	{
 		if (strcmp(vars.instruct[i].opcode, opcode) == 0)
