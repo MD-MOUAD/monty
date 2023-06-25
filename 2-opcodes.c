@@ -86,9 +86,9 @@ void rotl(stack_t **stack, unsigned int line_number)
 	stack_t *first, *last;
 	(void) line_number;
 
-	first = last = *stack;
 	if (*stack && (*stack)->next)
 	{
+		first = last = *stack;
 		*stack = (*stack)->next; /* the head of the stack will be the second
 									node that contains the 2nd top element */
 		while(last->next)
