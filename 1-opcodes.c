@@ -96,7 +96,7 @@ void mul(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		free_all();
-		/* fclose(vars.stream); */
+		fclose(vars.stream);
 		exit(EXIT_FAILURE);
 	}
 	else

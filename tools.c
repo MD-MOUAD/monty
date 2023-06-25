@@ -20,7 +20,8 @@ void initialize_vars(void)
 	vars.instruct[7].opcode = "sub", vars.instruct[7].f = sub;
 	vars.instruct[8].opcode = "div", vars.instruct[8].f = divid;
 	vars.instruct[9].opcode = "mul", vars.instruct[9].f = mul;
-	vars.instruct[10].opcode = NULL, vars.instruct[10].f = NULL;
+	vars.instruct[10].opcode = "mod", vars.instruct[10].f = mod;
+	vars.instruct[11].opcode = NULL, vars.instruct[11].f = NULL;
 }
 /**
  * free_all - free allocated memory
