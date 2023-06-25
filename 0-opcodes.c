@@ -8,7 +8,6 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new;
 	char *number;
 
 	number = strtok(NULL, " \t\n");
@@ -18,26 +17,11 @@ void push(stack_t **stack, unsigned int line_number)
 		free_all(), fclose(vars.stream);
 		exit(EXIT_FAILURE);
 	}
-	new = malloc(sizeof(stack_t));
-	if (!new)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		free_all(), fclose(vars.stream);
-		exit(EXIT_FAILURE);
-	}
-	new->n = atoi(number);
-	new->next = NULL;
-	new->prev = NULL;
-	if (strcmp(vars.format, "LIFO") == 0) /* Stack */
-	{
-		add_node(stack, atoi(number));
-		return;
-	}
 	if (strcmp(vars.format, "FIFO") == 0) /* Queue */
-	{
 		add_node_end(stack, atoi(number));
-		return;
-	}
+
+	else /* Stack */
+		add_node(stack, atoi(number));
 }
 /**
  * pall - prints all the values on the stack, starting from the top

@@ -128,5 +128,6 @@ void add_node_end(stack_t **head, const int n)
 
 		tmp->next = new;
 		new->prev = tmp;
+		tmp = NULL;
 	}
 }
