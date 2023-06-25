@@ -24,7 +24,6 @@ void mod(stack_t **stack, unsigned int line_number)
 		pop(stack, line_number);
 	}
 }
-#include "monty.h"
 /**
  * pchar - prints the char at the top of the stack, followed by a new line.
  * @stack: the head of the stack
@@ -47,4 +46,26 @@ void pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	printf("%c\n", (*stack)->n);
+}
+/**
+ * pstr - prints the string starting at the top of the stack, followed by
+ * a new line.
+ * @stack: the head of the stack
+ * @line_number: the line number where the opcode exist
+ *
+ * Return: (void)
+ */
+void pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *tmp = *stack;
+	(void) line_number;
+
+	while (*tmp)
+	{
+		if (tmp->n <= 0 || tmp->n > 127)
+			break;
+		printf("%c\n", tmp->n);
+		tmp = tmp->next;
+	}
+	printf("\n");
 }

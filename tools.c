@@ -22,7 +22,8 @@ void initialize_vars(void)
 	vars.instruct[9].opcode = "mul", vars.instruct[9].f = mul;
 	vars.instruct[10].opcode = "mod", vars.instruct[10].f = mod;
 	vars.instruct[11].opcode = "pchar", vars.instruct[11].f = pchar;
-	vars.instruct[12].opcode = NULL, vars.instruct[12].f = NULL;
+	vars.instruct[12].opcode = "pstr", vars.instruct[12].f = pstr;
+	vars.instruct[13].opcode = NULL, vars.instruct[13].f = NULL;
 }
 /**
  * free_all - free allocated memory
